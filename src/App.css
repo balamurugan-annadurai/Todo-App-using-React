@@ -1,0 +1,107 @@
+.custom {
+    display: flex;
+    justify-content: center;
+}
+h1{
+    color: #12ac89;
+}
+.input {
+    width: 100%;
+    transition: 0.3s;
+    outline: none;
+    border: 2px solid #12ac89;
+    padding-left: 10px;
+}
+.btn {
+    width: 100%;
+}
+.btn-green{
+    background-color: #12ac89;
+    border: none;
+    outline: none;
+}
+.btn-red{
+    background-color: #d05e1f;
+    border: none;
+    outline: none;
+}
+
+.user-input-container{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+h2{
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+.status-filter{
+   display: flex;
+   gap: 5px;
+   justify-content:flex-end;
+}
+.status-filter select{
+    width:fit-content;
+}
+.card-content{
+    width: 90%;
+    padding: 20px 10px;
+    word-wrap: break-word;
+    background-color: #ccf5d3;
+}
+.notCompleted{
+  background-color: #fe7f7f;
+  color: #fff;
+  border: none;
+  outline: none;
+  padding: 5px 0;
+}
+.completed{
+    background-color: #12ac89;
+    color: #fff;
+    border: none;
+    outline: none;
+    padding: 5px 0;
+  }
+.buttons{
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 40px;
+    margin-right: 10px;
+}
+.buttons .btn{
+    width: 30% !important;
+}
+.update-btn{
+    width: 30%;
+}
+.card-content input{
+    width: 100%;
+    padding: 8px 0 8px 5px;
+    border-radius: 5px;
+}
+.card-content span{
+    font-weight: bolder;
+}
+.card-content span{
+    padding-right: 10px;
+}
+.msg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+@media  screen and (max-width:991px) {
+    .update-btn{
+        margin-top: 20px;
+    }
+}
+@media  screen and (max-width:768px) {
+    .update-btn{
+        margin-top: 0;
+    }
+}
