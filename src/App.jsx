@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Header from './Components/Header';
 import Main from './Components/Main';
 import "./App.css";
+import NewContext from './NewContext';
 
 const App = () => {
     //State for cards
@@ -20,6 +21,13 @@ const App = () => {
     const changeStatus = (id, newStatus) => {
         setCards(cards.map(card => card.id === id ? { ...card, status: newStatus } : card));
     };
+
+    const updatEditedName = (id,newValue) => {
+        setCards(cards.map(card => card.id === id ? { ...card, todoName: newValue } : card));
+    }
+    const updatEditedDiscription = (id,newValue) => {
+        setCards(cards.map(card => card.id === id ? { ...card, todoDis: newValue } : card));
+    }
 
     //function to delete card from cards
     const deleteCard = (id) => {
@@ -40,17 +48,19 @@ const App = () => {
     };
 
     return (
-        <div className="container">
-            <Header addCard={addCard} isMsgDisplay={isMsgDisplay} setIsMsgDisplay={setIsMsgDisplay} />
-            <Main 
-                filterStatus={filterStatus} 
-                setFilterStatus={setFilterStatus} 
-                cards={filterCards()} 
-                deleteCard={deleteCard} 
-                changeStatus={changeStatus}
-                isMsgDisplay={isMsgDisplay}
-            />
-        </div>
+        <NewContext.Provider value={{updatEditedName,updatEditedDiscription}}>
+            <div className="container">
+                <Header addCard={addCard} isMsgDisplay={isMsgDisplay} setIsMsgDisplay={setIsMsgDisplay} />
+                <Main
+                    filterStatus={filterStatus}
+                    setFilterStatus={setFilterStatus}
+                    cards={filterCards()}
+                    deleteCard={deleteCard}
+                    changeStatus={changeStatus}
+                    isMsgDisplay={isMsgDisplay}
+                />
+            </div>
+        </NewContext.Provider>
     );
 };
 

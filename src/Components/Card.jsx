@@ -1,6 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import NewContext from '../NewContext';
 
 const Card = ({ todoName, todoDis, id, deleteCard, status, changeStatus }) => {
+
+    const { updatEditedName } = useContext(NewContext);
+    const {updatEditedDiscription} = useContext(NewContext);
+
     //State for todoName
     const [newTodoName, setNewTodoName] = useState(todoName);
     //State for todo description
@@ -17,8 +22,10 @@ const Card = ({ todoName, todoDis, id, deleteCard, status, changeStatus }) => {
     const updateChanges = (event, field) => {
         if (field === 'name') {
             setNewTodoName(event.target.value);
+            updatEditedName(id, event.target.value);
         } else {
             setNewTodoDis(event.target.value);
+            updatEditedDiscription(id, event.target.value);
         }
     };
 
